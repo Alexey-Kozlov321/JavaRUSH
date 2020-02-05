@@ -10,7 +10,6 @@ package com.javarush.task.task05.task0502;
 если cat1.fight(cat2) возвращает true,
 то cat2.fight(cat1) должен возвращать false.
 
-
 Требования:
 1. Класс Cat должен содержать конструктор без параметров.
 2. Класс Cat должен содержать всего три поля: age, weight и strength. Поля должны быть публичные.
