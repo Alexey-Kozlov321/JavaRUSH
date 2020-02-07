@@ -19,10 +19,10 @@ public class Solution {
     }
     public class House {
     }
-    public class Cat extends House{
+    public class Cat {
     }
-    public class Car extends House{
+    public class Car {
     }
-    public class Dog extends House {
+    public class Dog {
     }
 }
