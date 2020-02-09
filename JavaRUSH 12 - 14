@@ -21,7 +21,7 @@ public class Solution {
     }
     public static class Cow extends Animal {
         public String getName() {
-            return null;
+            return "Sveta";
         }
     }
 }
