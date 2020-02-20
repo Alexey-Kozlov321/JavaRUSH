@@ -29,7 +29,7 @@ public class Solution {
         }
         @Override
         public void onSelect() {
-            System.out.println("food is selected");
+            System.out.println("The food was selected");
         }
     }
 }
