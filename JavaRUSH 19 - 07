@@ -1,0 +1,38 @@
+package com.javarush.task.task19.task1907;
+
+/* 
+Считаем слово
+*/
+
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fileName1 = reader.readLine();
+        reader.close();
+        FileReader fileReader = new FileReader(fileName1);
+
+        int count = 0;
+        String s = "";
+
+        while (fileReader.ready()){
+            char symbol = (char) fileReader.read();
+            s += String.valueOf(symbol).toLowerCase();
+        }
+
+        s = s.replaceAll("\\p{Punct}", " ");
+        s = s.replaceAll("\n", " ");
+
+        String[] mas = s.split(" ");
+        for(String string: mas){
+            string = string.trim();
+            if (string.equals("world"))
+                count++;
+        }
+
+        System.out.println(count);
+        reader.close();
+        fileReader.close();
+    }
+}
