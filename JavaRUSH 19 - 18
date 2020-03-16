@@ -1,0 +1,46 @@
+package com.javarush.task.task19.task1918;
+
+/* 
+Знакомство с тегами
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader file = new BufferedReader(new FileReader(reader.readLine()));
+        reader.close();
+        StringBuffer stringBuffer = new StringBuffer();
+        while (file.ready()) {
+            stringBuffer.append(file.readLine());
+        }
+        String l = stringBuffer.toString().replaceAll("\r\n","");
+        if (!l.contains("CDATA")) {
+            findTag(args[0], l, 0);
+        }
+        file.close();
+    }
+
+    public static void findTag(String tag, String a, int b) {
+        int tagCount = 0, lastTag = 0;
+        int n = b;
+        while (i < (a.length() - tag.length() - 1)) {
+            if (a.substring(n, n + tag.length() + 1).equals("<" + tag)) {
+                if (tagCount == 0) lastTag = i;
+                tagCount++;
+            } else if (a.substring(n, n + tag.length() + 2).equals("</" + tag)) {
+                tagCount--;
+                if (tagCount == 0) {
+                    String newString = a.substring(lastTag, n + tag.length() +3);
+                    System.out.println(newString);
+                    findTag(tag, newString, 1);
+                }
+            }
+            n++;
+        }
+    }
+}
